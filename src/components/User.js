@@ -6,11 +6,26 @@ export default function User(props) {
     "assets/nxthanandrade.jpg"
   );
 
+  function changeProfile() {
+    const newPicture = prompt("Change profile picture");
+    if (!newPicture) {
+      return;
+    }
+    setProfilePicture(newPicture);
+  }
+  function changeUsername() {
+    const newUsername = prompt("Edit username");
+    if (!newUsername) {
+      return;
+    }
+    setLoggedUser(newUsername);
+  }
+
   return (
     <div class="usuario">
       <img
         data-test="profile-image"
-        onClick={() => setProfilePicture(prompt("Change profile picture"))}
+        onClick={changeProfile}
         src={profilePicture}
         alt="imagem de perfil"
       />
@@ -20,7 +35,7 @@ export default function User(props) {
           <ion-icon
             data-test="edit-name"
             name="pencil"
-            onClick={() => setLoggedUser(prompt("Edit name"))}></ion-icon>
+            onClick={changeUsername}></ion-icon>
         </span>
       </div>
     </div>
