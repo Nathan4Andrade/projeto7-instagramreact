@@ -1,13 +1,16 @@
 import React from "react";
 
 export default function User(props) {
-  let [loggedUser, setLoggedUser] = React.useState("nxthanandrade");
+  const [loggedUser, setLoggedUser] = React.useState("nxthanandrade");
+  const [profilePicture, setProfilePicture] = React.useState(
+    "assets/nxthanandrade.jpg"
+  );
 
   return (
     <div class="usuario">
       <img
-        onClick={() => setLoggedUser(prompt("Change user"))}
-        src={props.link}
+        onClick={() => setProfilePicture(prompt("Change profile picture"))}
+        src={profilePicture}
         alt="imagem de perfil"
       />
       <div class="texto">

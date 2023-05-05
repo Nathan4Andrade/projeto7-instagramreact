@@ -2,10 +2,9 @@ import User from "./User";
 import Suggestions from "./Suggestions";
 
 export default function SideBar() {
-  const loggedUser = "nxthanandrade";
   return (
     <div class="sidebar">
-      <User link={`assets/${loggedUser}.jpg`} />
+      <User />
       <Suggestions />
 
       <div class="links">
