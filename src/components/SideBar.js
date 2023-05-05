@@ -5,7 +5,7 @@ export default function SideBar() {
   const loggedUser = "nxthanandrade";
   return (
     <div class="sidebar">
-      <User username={loggedUser} link={`assets/${loggedUser}.jpg`} />
+      <User link={`assets/${loggedUser}.jpg`} />
       <Suggestions />
 
       <div class="links">
