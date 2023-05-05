@@ -1,4 +1,25 @@
+import React from "react";
+
 export default function Post(props) {
+  const [bookmark, setBookmark] = React.useState(false);
+  const bookmarkAtual = bookmark ? "bookmark" : "bookmark-outline";
+
+  const [heart, setHeart] = React.useState(false);
+  const heartAtual = heart ? "heart" : "heart-outline";
+
+  let [likes, setLikes] = React.useState(
+    Math.floor(Math.random() * 100000) + 100000
+  );
+
+  function likePost() {
+    setHeart(!heart);
+    if (!heart) {
+      setLikes(likes + 1);
+    } else {
+      setLikes(likes - 1);
+    }
+  }
+
   return (
     <div class="post">
       <div class="topo">
@@ -12,18 +33,20 @@ export default function Post(props) {
       </div>
 
       <div class="conteudo">
-        <img src={props.media} alt={props.mediaAlt} />
+        <img onClick={likePost} src={props.media} alt={props.mediaAlt} />
       </div>
 
       <div class="fundo">
         <div class="acoes">
           <div>
-            <ion-icon name="heart-outline"></ion-icon>
+            <ion-icon onClick={likePost} name={heartAtual}></ion-icon>
             <ion-icon name="chatbubble-outline"></ion-icon>
             <ion-icon name="paper-plane-outline"></ion-icon>
           </div>
           <div>
-            <ion-icon name="bookmark-outline"></ion-icon>
+            <ion-icon
+              onClick={() => setBookmark(!bookmark)}
+              name={bookmarkAtual}></ion-icon>
           </div>
         </div>
 
@@ -32,8 +55,12 @@ export default function Post(props) {
           <div class="texto">
             Curtido por <strong>nathanandrade</strong> e{" "}
             <strong>
-              outras {Math.floor(Math.random() * 100) + 100}.
-              {Math.floor(Math.random() * 100) + 100} pessoas
+              outras{" "}
+              {likes.toLocaleString("pt-BR", {
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 2,
+              })}{" "}
+              pessoas
             </strong>
           </div>
         </div>
