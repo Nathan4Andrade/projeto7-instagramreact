@@ -316,3 +316,11 @@ ion-icon {
   padding-top: 5px;
   color: black;
 }
+
+.heart-red {
+  color: red;
+}
+
+.heart-black {
+  color: black;
+}

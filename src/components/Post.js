@@ -6,6 +6,8 @@ export default function Post(props) {
 
   const [heart, setHeart] = React.useState(false);
   const heartAtual = heart ? "heart" : "heart-outline";
+  const [heartColor, setHeartColor] = React.useState(false);
+  const heartColorAtual = heartColor ? "heart-red" : "heart-black";
 
   let [likes, setLikes] = React.useState(
     Math.floor(Math.random() * 100000) + 100000
@@ -13,10 +15,17 @@ export default function Post(props) {
 
   function likePost() {
     setHeart(!heart);
+    setHeartColor(!heartColor);
     if (!heart) {
       setLikes(likes + 1);
     } else {
       setLikes(likes - 1);
+    }
+  }
+
+  function likeByImg() {
+    if (heartAtual === "heart-outline") {
+      likePost();
     }
   }
 
@@ -35,7 +44,7 @@ export default function Post(props) {
       <div class="conteudo">
         <img
           data-test="post-image"
-          onClick={likePost}
+          onClick={likeByImg}
           src={props.media}
           alt={props.mediaAlt}
         />
@@ -47,7 +56,8 @@ export default function Post(props) {
             <ion-icon
               data-test="like-post"
               onClick={likePost}
-              name={heartAtual}></ion-icon>
+              name={heartAtual}
+              class={heartColorAtual}></ion-icon>
             <ion-icon name="chatbubble-outline"></ion-icon>
             <ion-icon name="paper-plane-outline"></ion-icon>
           </div>
