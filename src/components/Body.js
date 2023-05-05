@@ -4,14 +4,12 @@ import SideBar from "./SideBar";
 
 export default function Body() {
   return (
-    <main>
-      <div className="feed">
+    <div class="corpo">
+      <div className="esquerda">
         <Stories />
         <Posts />
       </div>
-      <div className="sidediv">
-        <SideBar />
-      </div>
-    </main>
+      <SideBar />
+    </div>
   );
 }
