@@ -28,7 +28,7 @@ export default function Post(props) {
         </div>
 
         <div class="curtidas">
-          <img src="assets/eu.jpg" alt="respondeai" />
+          <img src="assets/nxthanadrade.jpg" alt="nxthanadrade" />
           <div class="texto">
             Curtido por <strong>nathanandrade</strong> e{" "}
             <strong>

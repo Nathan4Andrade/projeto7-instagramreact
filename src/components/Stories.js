@@ -1,6 +1,5 @@
 import Story from "./Story";
 export default function Stories() {
-  // const stories = ["gfriend", "mave", "nmixx", "sunmi", "triples"];
   const users = [
     "red-velvet",
     "twice",
