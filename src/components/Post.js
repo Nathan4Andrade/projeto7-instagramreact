@@ -21,7 +21,7 @@ export default function Post(props) {
   }
 
   return (
-    <div class="post">
+    <div class="post" data-test="post">
       <div class="topo">
         <div class="usuario">
           <img src={props.profilePicture} alt={props.altProfile} />
@@ -33,18 +33,27 @@ export default function Post(props) {
       </div>
 
       <div class="conteudo">
-        <img onClick={likePost} src={props.media} alt={props.mediaAlt} />
+        <img
+          data-test="post-image"
+          onClick={likePost}
+          src={props.media}
+          alt={props.mediaAlt}
+        />
       </div>
 
       <div class="fundo">
         <div class="acoes">
           <div>
-            <ion-icon onClick={likePost} name={heartAtual}></ion-icon>
+            <ion-icon
+              data-test="like-post"
+              onClick={likePost}
+              name={heartAtual}></ion-icon>
             <ion-icon name="chatbubble-outline"></ion-icon>
             <ion-icon name="paper-plane-outline"></ion-icon>
           </div>
           <div>
             <ion-icon
+              data-test="save-post"
               onClick={() => setBookmark(!bookmark)}
               name={bookmarkAtual}></ion-icon>
           </div>
@@ -56,10 +65,12 @@ export default function Post(props) {
             Curtido por <strong>nathanandrade</strong> e{" "}
             <strong>
               outras{" "}
-              {likes.toLocaleString("pt-BR", {
-                minimumFractionDigits: 0,
-                maximumFractionDigits: 2,
-              })}{" "}
+              <span data-test="likes-number">
+                {likes.toLocaleString("pt-BR", {
+                  minimumFractionDigits: 0,
+                  maximumFractionDigits: 2,
+                })}{" "}
+              </span>
               pessoas
             </strong>
           </div>

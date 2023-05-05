@@ -9,16 +9,18 @@ export default function User(props) {
   return (
     <div class="usuario">
       <img
+        data-test="profile-image"
         onClick={() => setProfilePicture(prompt("Change profile picture"))}
         src={profilePicture}
         alt="imagem de perfil"
       />
       <div class="texto">
         <span>
-          <strong>{loggedUser}</strong>
+          <strong data-test="name">{loggedUser}</strong>
           <ion-icon
+            data-test="edit-name"
             name="pencil"
-            onClick={() => setLoggedUser(prompt("Change user"))}></ion-icon>
+            onClick={() => setLoggedUser(prompt("Edit name"))}></ion-icon>
         </span>
       </div>
     </div>
